@@ -1,15 +1,36 @@
-var newele=document.createElement('div');
-var il=document.querySelector('header .container');
-var firstElem=document.querySelector('header h1');
-var texte=document.createTextNode('HEllo');
-newele.appendChild(texte);
-//firstElem.parentElement.insertBefore(newele,firstElem);
-il.insertBefore(newele,firstElem);
-var newele1=document.createElement('div');
-newele1.setAttribute('id','text1');
-newele1.className="elements";
-var texte1=document.createTextNode('HEllo');
-newele1.appendChild(texte1);
-var lis=document.querySelector('.container ul');
-var befli=document.querySelector('ul li');
-befli.parentElement.insertBefore(newele1,befli);
+let listitems=document.querySelector('.list-group');
+let inputt=document.getElementById('item');
+let form=document.getElementById('addForm');
+form.addEventListener('submit',additem);
+
+listitems.addEventListener('click',removeitem);
+
+function additem(e)
+{
+    e.preventDefault();
+    let newli=document.createElement('li');
+    let textelem=inputt.value;
+    newli.className="list-group-item";
+    newli.append(textelem);
+
+    let deletebtn=document.createElement('button');
+    deletebtn.className='btn btn-danger btn-sm float-right delete';
+    deletebtn.appendChild(document.createTextNode('x'));
+    newli.appendChild(deletebtn);
+
+    let editbtn=document.createElement('button');
+    editbtn.className='btn btn-sm float-right edit';
+    editbtn.appendChild(document.createTextNode('edit'));
+    newli.appendChild(editbtn);    
+
+    listitems.appendChild(newli);
+   
+}
+function removeitem(e)
+{
+    if(e.target.classList.contains('delete'))
+    {
+        let li=e.target.parentElement;
+        listitems.removeChild(li);
+    }
+}

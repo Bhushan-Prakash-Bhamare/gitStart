@@ -5,8 +5,11 @@ function addData(e)
 {
     e.preventDefault();
     let nameInput=document.getElementById('name').value;
-    localStorage.setItem(nameInput,nameInput);
-
     let emailInput=document.getElementById('email').value;
-    localStorage.setItem(emailInput,emailInput);
+    let myobj={
+        name:nameInput,
+        email:emailInput
+    } 
+    let myobj_s=JSON.stringify(myobj);
+    localStorage.setItem('myobj',myobj_s);
 }

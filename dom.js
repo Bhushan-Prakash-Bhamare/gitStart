@@ -6,7 +6,7 @@ let filter=document.querySelector('#filter');
 form.addEventListener('submit',additem);
 
 listitems.addEventListener('click',removeitem);
-
+ 
 filter.addEventListener('keyup',filteritem);
 
 function additem(e)

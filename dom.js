@@ -1,11 +1,15 @@
-// const item2=document.querySelector('.list-group');
-// console.log(item2);
-// item2.children[1].style.backgroundColor='green'
-// item2.children[2].style.display='none';
-const list1=document.querySelectorAll('.list-group-item');
-list1[1].style.color='green';
-var listodd=document.querySelectorAll('.list-group-item:nth-child(odd)');
-for(let i=0;i<listodd.length;i++)
-{
-    listodd[i].style.backgroundColor='green';
-}
+var newele=document.createElement('div');
+var il=document.querySelector('header .container');
+var firstElem=document.querySelector('header h1');
+var texte=document.createTextNode('HEllo');
+newele.appendChild(texte);
+//firstElem.parentElement.insertBefore(newele,firstElem);
+il.insertBefore(newele,firstElem);
+var newele1=document.createElement('div');
+newele1.setAttribute('id','text1');
+newele1.className="elements";
+var texte1=document.createTextNode('HEllo');
+newele1.appendChild(texte1);
+var lis=document.querySelector('.container ul');
+var befli=document.querySelector('ul li');
+befli.parentElement.insertBefore(newele1,befli);

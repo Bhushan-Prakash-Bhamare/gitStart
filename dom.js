@@ -11,5 +11,5 @@ function addData(e)
         email:emailInput
     } 
     let myobj_s=JSON.stringify(myobj);
-    localStorage.setItem('myobj',myobj_s);
+    localStorage.setItem(emailInput,myobj_s);
 }

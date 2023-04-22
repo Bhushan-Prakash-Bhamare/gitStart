@@ -19,22 +19,24 @@ function showUser(myobj)
 {
     var parentElem=document.getElementById('users');
     const childElem=document.createElement('li');
-   // childElem.className='del-list';
     childElem.textContent=myobj.name+'-'+myobj.email+" "; 
     const deletebtn=document.createElement('button');
-   // deletebtn.className='btn1';
     deletebtn.textContent='Delete';
+
+    const editbtn=document.createElement('button');
+    editbtn.textContent='Edit';
     childElem.appendChild(deletebtn);
+    childElem.appendChild(editbtn);
     parentElem.appendChild(childElem);
 
     deletebtn.addEventListener('click',function(){
-        removeItem(event,myobj,parentElem);
+        localStorage.removeItem(myobj.email);
+         parentElem.removeChild(childElem); 
     });
-}
-
-function removeItem(e,myobj,parentElem)
-{
-            let item=e.target.parentElement;
-            parentElem.removeChild(item); 
-            localStorage.removeItem(myobj.email);
+    editbtn.addEventListener('click',function(){
+         localStorage.removeItem(myobj.email);
+         parentElem.removeChild(childElem); 
+         document.getElementById('name').value=myobj.name;
+         document.getElementById('email').value=myobj.email;
+    });
 }
